@@ -19,7 +19,7 @@ defmodule SandiegojsApi.Mixfile do
   def application do
     [mod: {SandiegojsApi, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :httpoison]]
+                    :phoenix_ecto, :postgrex, :exmeetup]]
   end
 
   # Specifies which paths to compile per environment.
@@ -37,7 +37,7 @@ defmodule SandiegojsApi.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:ja_serializer, "~> 0.11.0"},
-     {:httpoison, "~> 0.9.0"}]
+     {:exmeetup, git: "https://github.com/marksiemers/exmeetup.git", tag: "0.0.3"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

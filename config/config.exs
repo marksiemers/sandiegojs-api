@@ -18,7 +18,13 @@ config :sandiegojs_api, SandiegojsApi.Endpoint,
            adapter: Phoenix.PubSub.PG2]
 
 config :sandiegojs_api,
-  meetup_key: "4853733f70347335471c6f8576e272b"
+  meetup_key:
+
+  config :exmeetup,
+    api_base_uri: "https://api.meetup.com/",
+    meetup_name: "sandiegojs",
+    access_token: System.get_env("MEETUP_ACCESS_TOKEN") || "",
+    decoder: :atoms # :atoms (not efficient), :string (suggested, most efficient)
 
 config :phoenix, :format_encoders,
   "json-api": Poison
@@ -31,6 +37,8 @@ config :mime, :types, %{
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
+
+
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
